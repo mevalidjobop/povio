@@ -37,19 +37,88 @@ struct Autolayout {
   }
   
   static func topAnchor(
-      ofView: UIView? = nil,
-      safeArea: Bool = false,
-      _ constant: CGFloat = 0
-    ) -> Autolayout {
-      let layout = Autolayout { view in
-        let relationView = relationView(view, ofView: ofView)
-        let topAnchor = safeArea
-          ? relationView.safeAreaLayoutGuide.topAnchor
-          : relationView.topAnchor
-        view.topAnchor.constraint(equalTo: topAnchor, constant: constant).isActive = true
-      }
-      return layout
+    ofView: UIView? = nil,
+    safeArea: Bool = false,
+    _ constant: CGFloat = 0
+  ) -> Autolayout {
+    let layout = Autolayout { view in
+      let relationView = relationView(view, ofView: ofView)
+      let topAnchor = safeArea
+        ? relationView.safeAreaLayoutGuide.topAnchor
+        : relationView.topAnchor
+      view.topAnchor.constraint(equalTo: topAnchor, constant: constant).isActive = true
     }
+    return layout
+  }
+  
+  static func heightAnchor(
+    ofView: UIView? = nil,
+    safeArea: Bool = false,
+    multiplier: CGFloat = 1,
+    _ constant: CGFloat = 0
+  ) -> Autolayout {
+    let layout = Autolayout { view in
+      let relationView = relationView(view, ofView: ofView)
+      let heightAnchor = safeArea
+        ? relationView.safeAreaLayoutGuide.heightAnchor
+        : relationView.heightAnchor
+      view.heightAnchor.constraint(equalTo: heightAnchor, multiplier: multiplier, constant: constant).isActive = true
+    }
+    return layout
+  }
+  
+  static func bottomAnchor(
+    ofView: UIView? = nil,
+    safeArea: Bool = false,
+    _ constant: CGFloat = 0
+  ) -> Autolayout {
+    let layout = Autolayout { view in
+      let relationView = relationView(view, ofView: ofView)
+      let bottomAnchor = safeArea
+        ? relationView.safeAreaLayoutGuide.bottomAnchor
+        : relationView.bottomAnchor
+      view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: constant).isActive = true
+    }
+    return layout
+  }
+  
+  static func topBottomAnchor(
+    ofView: UIView? = nil,
+    safeArea: Bool = false,
+    _ constant: CGFloat = 0
+  ) -> Autolayout {
+    let layout = Autolayout { view in
+      let relationView = relationView(view, ofView: ofView)
+      let bottomAnchor = safeArea
+        ? relationView.safeAreaLayoutGuide.bottomAnchor
+        : relationView.bottomAnchor
+      view.topAnchor.constraint(equalTo: bottomAnchor, constant: constant).isActive = true
+    }
+    return layout
+  }
+  
+  static func height(
+    _ constant: CGFloat = 0,
+    _ relation: NSLayoutConstraint.Relation = .equal
+  ) -> Autolayout {
+    let layout = Autolayout { view in
+      let heightAnchor = view.heightAnchor
+
+      let constraints: [NSLayoutConstraint.Relation: () -> Void] = [
+        .equal: {
+          heightAnchor.constraint(equalToConstant: constant).isActive = true
+        },
+        .lessThanOrEqual: {
+          heightAnchor.constraint(lessThanOrEqualToConstant: constant).isActive = true
+        },
+        .greaterThanOrEqual: {
+          heightAnchor.constraint(greaterThanOrEqualToConstant: constant).isActive = true
+        }
+      ]
+      constraints[relation]?()
+    }
+    return layout
+  }
 }
 
 private extension Autolayout {

@@ -72,6 +72,8 @@
 		BEE24371275B5EC600DEFDB8 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24370275B5EC600DEFDB8 /* Label.swift */; };
 		BEE24373275B5F5800DEFDB8 /* UIView+FlowrSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24372275B5F5800DEFDB8 /* UIView+FlowrSpot.swift */; };
 		BEE24375275B5F8700DEFDB8 /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24374275B5F8700DEFDB8 /* Autolayout.swift */; };
+		BEE24377275BB4E200DEFDB8 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24376275BB4E200DEFDB8 /* TextField.swift */; };
+		BEE24379275BB53800DEFDB8 /* UIStackView+FlowrSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24378275BB53800DEFDB8 /* UIStackView+FlowrSpot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +151,8 @@
 		BEE24370275B5EC600DEFDB8 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		BEE24372275B5F5800DEFDB8 /* UIView+FlowrSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+FlowrSpot.swift"; sourceTree = "<group>"; };
 		BEE24374275B5F8700DEFDB8 /* Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autolayout.swift; sourceTree = "<group>"; };
+		BEE24376275BB4E200DEFDB8 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		BEE24378275BB53800DEFDB8 /* UIStackView+FlowrSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+FlowrSpot.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +264,7 @@
 				37DFD3332011E48D001023ED /* UIFont+FlowrSpot.swift */,
 				99EFB8962567B09C00842287 /* UIImageView+FlowrSpot.swift */,
 				BEE24372275B5F5800DEFDB8 /* UIView+FlowrSpot.swift */,
+				BEE24378275BB53800DEFDB8 /* UIStackView+FlowrSpot.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -464,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				BEE24370275B5EC600DEFDB8 /* Label.swift */,
+				BEE24376275BB4E200DEFDB8 /* TextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -659,6 +665,7 @@
 				BEE24375275B5F8700DEFDB8 /* Autolayout.swift in Sources */,
 				3787E6412015D1420080A599 /* Constants.swift in Sources */,
 				37603CEA2010975700FB9F78 /* DataSource.swift in Sources */,
+				BEE24379275BB53800DEFDB8 /* UIStackView+FlowrSpot.swift in Sources */,
 				373597C8201B2D570000CA57 /* EmptyView.swift in Sources */,
 				99373B632562EF3E005E0116 /* EndpointEncodable.swift in Sources */,
 				99492824271021240060C35F /* FlowController.swift in Sources */,
@@ -676,6 +683,7 @@
 				378E922622B0E227008C06F0 /* HomeContentView.swift in Sources */,
 				37DFD3282011E41C001023ED /* HomeHeaderView.swift in Sources */,
 				37F609192012220200087B53 /* HomeInteractor.swift in Sources */,
+				BEE24377275BB4E200DEFDB8 /* TextField.swift in Sources */,
 				37F609202012220200087B53 /* HomePresenter.swift in Sources */,
 				37F6091C2012220200087B53 /* HomeRouter.swift in Sources */,
 				37F6091B2012220200087B53 /* HomeViewController.swift in Sources */,

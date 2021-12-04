@@ -19,10 +19,16 @@ class LoginController: UIViewController {
     return label
   }()
   
+  let usernameField: TextField = {
+    let field = TextField()
+    field.title = "email_address".localized()
+    return field
+  }()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .white
-    view.addSubviews(navTitle)
+    view.addSubviews(navTitle, usernameField)
     setLayout()
   }
 }
@@ -33,6 +39,11 @@ private extension LoginController {
     navTitle.auto(
       .topAnchor(safeArea: true),
       .fillX(safeArea: true)
+    )
+    
+    usernameField.auto(
+      .fillX(15, 15),
+      .topBottomAnchor(ofView: navTitle, 40)
     )
   }
 }

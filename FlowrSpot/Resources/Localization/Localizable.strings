@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   FlowrSpot
 
@@ -18,3 +18,6 @@
 "home_search_placeholder" = "Looking for something specific?";
 
 "sightings_count" = "%d sightings";
+
+/** Login Scene */
+"email_address" = "Email Address";
