@@ -69,6 +69,9 @@
 		99EFB87A2567AEF600842287 /* FlowersAPI+Mappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EFB8792567AEF600842287 /* FlowersAPI+Mappers.swift */; };
 		99EFB8972567B09C00842287 /* UIImageView+FlowrSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EFB8962567B09C00842287 /* UIImageView+FlowrSpot.swift */; };
 		BEE2436E275B5DF700DEFDB8 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE2436D275B5DF700DEFDB8 /* LoginController.swift */; };
+		BEE24371275B5EC600DEFDB8 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24370275B5EC600DEFDB8 /* Label.swift */; };
+		BEE24373275B5F5800DEFDB8 /* UIView+FlowrSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24372275B5F5800DEFDB8 /* UIView+FlowrSpot.swift */; };
+		BEE24375275B5F8700DEFDB8 /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24374275B5F8700DEFDB8 /* Autolayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +146,9 @@
 		99EFB8792567AEF600842287 /* FlowersAPI+Mappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FlowersAPI+Mappers.swift"; sourceTree = "<group>"; };
 		99EFB8962567B09C00842287 /* UIImageView+FlowrSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+FlowrSpot.swift"; sourceTree = "<group>"; };
 		BEE2436D275B5DF700DEFDB8 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		BEE24370275B5EC600DEFDB8 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		BEE24372275B5F5800DEFDB8 /* UIView+FlowrSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+FlowrSpot.swift"; sourceTree = "<group>"; };
+		BEE24374275B5F8700DEFDB8 /* Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autolayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				99373B8A25631A19005E0116 /* Aliases.swift */,
+				BEE24374275B5F8700DEFDB8 /* Autolayout.swift */,
 				3787E6402015D1420080A599 /* Constants.swift */,
 			);
 			path = Utils;
@@ -252,6 +259,7 @@
 				37DFD3362011E48D001023ED /* UIColor+FlowrSpot.swift */,
 				37DFD3332011E48D001023ED /* UIFont+FlowrSpot.swift */,
 				99EFB8962567B09C00842287 /* UIImageView+FlowrSpot.swift */,
+				BEE24372275B5F5800DEFDB8 /* UIView+FlowrSpot.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -429,6 +437,7 @@
 		99EF39B522E71F8C001230BD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BEE2436F275B5EB900DEFDB8 /* Components */,
 				99EF39B722E71FDE001230BD /* Controllers */,
 				37603CDC2010966900FB9F78 /* Extensions */,
 				9949281F271020E60060C35F /* Managers */,
@@ -444,11 +453,19 @@
 			isa = PBXGroup;
 			children = (
 				99492823271021240060C35F /* FlowController.swift */,
+				BEE2436D275B5DF700DEFDB8 /* LoginController.swift */,
 				37892D7F200F38A600BB8259 /* NavigationController.swift */,
 				37DFD34A2011E817001023ED /* TabBarController.swift */,
-				BEE2436D275B5DF700DEFDB8 /* LoginController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BEE2436F275B5EB900DEFDB8 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BEE24370275B5EC600DEFDB8 /* Label.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -639,6 +656,7 @@
 				99EFB8702567ABFE00842287 /* AlamofireNetworkClient+FlowrSpot.swift in Sources */,
 				99373B8B25631A19005E0116 /* Aliases.swift in Sources */,
 				37B4196C200E06C600173B80 /* AppDelegate.swift in Sources */,
+				BEE24375275B5F8700DEFDB8 /* Autolayout.swift in Sources */,
 				3787E6412015D1420080A599 /* Constants.swift in Sources */,
 				37603CEA2010975700FB9F78 /* DataSource.swift in Sources */,
 				373597C8201B2D570000CA57 /* EmptyView.swift in Sources */,
@@ -664,6 +682,7 @@
 				3787E6582015D3E90080A599 /* Host.swift in Sources */,
 				37DFD3462011E63C001023ED /* ItemDimension.swift in Sources */,
 				372B953022B0D36400B304B3 /* JSONDecoder+FlowrSpot.swift in Sources */,
+				BEE24371275B5EC600DEFDB8 /* Label.swift in Sources */,
 				99492826271021A50060C35F /* LoggerStartupProcess.swift in Sources */,
 				BEE2436E275B5DF700DEFDB8 /* LoginController.swift in Sources */,
 				99373BCB25631E53005E0116 /* ModelMapper.swift in Sources */,
@@ -675,6 +694,7 @@
 				37DFD33C2011E48D001023ED /* UIColor+FlowrSpot.swift in Sources */,
 				37DFD3392011E48D001023ED /* UIFont+FlowrSpot.swift in Sources */,
 				99EFB8972567B09C00842287 /* UIImageView+FlowrSpot.swift in Sources */,
+				BEE24373275B5F5800DEFDB8 /* UIView+FlowrSpot.swift in Sources */,
 				3787E6552015D3E90080A599 /* Version.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
