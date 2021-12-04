@@ -68,6 +68,7 @@
 		99EFB8702567ABFE00842287 /* AlamofireNetworkClient+FlowrSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EFB86F2567ABFE00842287 /* AlamofireNetworkClient+FlowrSpot.swift */; };
 		99EFB87A2567AEF600842287 /* FlowersAPI+Mappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EFB8792567AEF600842287 /* FlowersAPI+Mappers.swift */; };
 		99EFB8972567B09C00842287 /* UIImageView+FlowrSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EFB8962567B09C00842287 /* UIImageView+FlowrSpot.swift */; };
+		BEE2436E275B5DF700DEFDB8 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE2436D275B5DF700DEFDB8 /* LoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 		99EFB86F2567ABFE00842287 /* AlamofireNetworkClient+FlowrSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlamofireNetworkClient+FlowrSpot.swift"; sourceTree = "<group>"; };
 		99EFB8792567AEF600842287 /* FlowersAPI+Mappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FlowersAPI+Mappers.swift"; sourceTree = "<group>"; };
 		99EFB8962567B09C00842287 /* UIImageView+FlowrSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+FlowrSpot.swift"; sourceTree = "<group>"; };
+		BEE2436D275B5DF700DEFDB8 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -444,6 +446,7 @@
 				99492823271021240060C35F /* FlowController.swift */,
 				37892D7F200F38A600BB8259 /* NavigationController.swift */,
 				37DFD34A2011E817001023ED /* TabBarController.swift */,
+				BEE2436D275B5DF700DEFDB8 /* LoginController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				37DFD3462011E63C001023ED /* ItemDimension.swift in Sources */,
 				372B953022B0D36400B304B3 /* JSONDecoder+FlowrSpot.swift in Sources */,
 				99492826271021A50060C35F /* LoggerStartupProcess.swift in Sources */,
+				BEE2436E275B5DF700DEFDB8 /* LoginController.swift in Sources */,
 				99373BCB25631E53005E0116 /* ModelMapper.swift in Sources */,
 				37892D80200F38A600BB8259 /* NavigationController.swift in Sources */,
 				37603CEE2010977F00FB9F78 /* RowType.swift in Sources */,
