@@ -9,55 +9,23 @@
 import UIKit
 
 class TextField: UIStackView {
+  private let textFieldView = UIView()
+  private let titleLabel = Label()
+  private let textField = UITextField()
+  private let errorLabel = Label()
+  
   var title: String? {
     didSet {
       titleLabel.text = title
     }
   }
   
-  let textFieldView: UIView = {
-    let view = UIView()
-    view.backgroundColor = .flowrFieldBackground
-    view.borderColor = .flowrFieldBorder
-    view.borderWidth = 1
-    view.cornerRadius = 3
-    return view
-  }()
-  
-  let titleLabel: Label = {
-    let label = Label()
-    label.font = UIFont.custom(type: .regular, size: 13)
-    label.textColor = .flowrFieldTitle
-    return label
-  }()
-  
-  let textField: UITextField = {
-    let textField = UITextField()
-    textField.autocapitalizationType = .none
-    textField.autocorrectionType = .no
-    textField.returnKeyType = .done
-    textField.font = UIFont.custom(type: .regular, size: 13)
-    textField.textColor = .flowrFieldText
-    return textField
-  }()
-  
-  let errorLabel: Label = {
-    let label = Label()
-    label.font = UIFont.custom(type: .regular, size: 11)
-    label.textColor = .red
-    label.text = "Some error"
-    return label
-  }()
-  
   override init(frame: CGRect) {
     super.init(frame: frame)
     axis = .vertical
     spacing = 2
     textField.delegate = self
-    textFieldView.addSubviews(titleLabel, textField)
-    addArrangedSubviews(textFieldView, errorLabel)
-    textFieldView.bringSubviewToFront(textField)
-    setLayout()
+    setupViews()
   }
   
   @available(*, unavailable)
@@ -68,44 +36,85 @@ class TextField: UIStackView {
 
 // MARK: Private Methods
 private extension TextField {
-  func setLayout() {
+  func setupViews() {
+    setupTextFieldView()
+    textFieldView.bringSubviewToFront(textField)
+  }
+  
+  func setupTextFieldView() {
+    setupTitleLabel()
+    addArrangedSubview(textFieldView)
+    textFieldView.backgroundColor = .flowrFieldBackground
+    textFieldView.borderColor = .flowrFieldBorder
+    textFieldView.borderWidth = 1
+    textFieldView.cornerRadius = 3
     textFieldView.snp.makeConstraints {
       $0.height.equalTo(48)
     }
+  }
+  
+  func setupTitleLabel() {
+    textFieldView.addSubview(titleLabel)
+    titleLabel.font = UIFont.custom(type: .regular, size: 13)
+    titleLabel.textColor = .flowrFieldTitle
     titleLabel.snp.makeConstraints {
       $0.height.equalToSuperview()
       $0.left.equalToSuperview().offset(15)
       $0.right.equalToSuperview()
     }
+  }
+  
+  func setupTextField() {
+    textFieldView.addSubview(textField)
+    textField.autocapitalizationType = .none
+    textField.autocorrectionType = .no
+    textField.returnKeyType = .done
+    textField.font = UIFont.custom(type: .regular, size: 13)
+    textField.textColor = .flowrFieldText
     textField.snp.makeConstraints {
       $0.left.equalToSuperview().offset(15)
-      $0.right.equalToSuperview().offset(-15)
+      $0.right.equalToSuperview().offset(15)
       $0.bottom.equalToSuperview()
       $0.height.equalToSuperview().multipliedBy(0.7)
     }
+  }
+  
+  func setupErrorLabel() {
+    addArrangedSubview(errorLabel)
+    errorLabel.font = UIFont.custom(type: .regular, size: 11)
+    errorLabel.textColor = .red
+    errorLabel.text = "Some error"
   }
   
   func setPlaceholderFocus() {
     guard (textField.text ?? "").isEmpty else { return }
     let constraints = titleLabel.findConstraints(.height, .top)
     textFieldView.removeConstraints(constraints)
+    setFocusLayout()
+    let transform = titleLabel.transform.scaledBy(x: 1, y: 0.8)
+    animatePlaceholder(with: transform)
+  }
+  
+  func setFocusLayout() {
     titleLabel.snp.makeConstraints {
       $0.height.equalToSuperview().multipliedBy(0.4)
       $0.top.equalToSuperview().offset(5)
     }
-    let transform = titleLabel.transform.scaledBy(x: 1, y: 0.8)
-    animatePlaceholder(with: transform)
   }
   
   func setPlaceholderBlur() {
     guard (textField.text ?? "").isEmpty else { return }
     let constraints = titleLabel.findConstraints(.height, .top)
     textFieldView.removeConstraints(constraints)
+    setBlurLayout()
+    animatePlaceholder(with: .identity)
+  }
+  
+  func setBlurLayout() {
     titleLabel.snp.makeConstraints {
       $0.height.equalToSuperview()
       $0.top.equalToSuperview()
     }
-    animatePlaceholder(with: .identity)
   }
   
   func animatePlaceholder(with transform: CGAffineTransform) {
@@ -116,6 +125,7 @@ private extension TextField {
   }
 }
 
+// MARK: - UITextField Delegate
 extension TextField: UITextFieldDelegate {
   func textFieldDidBeginEditing(_ textField: UITextField) {
     setPlaceholderFocus()
