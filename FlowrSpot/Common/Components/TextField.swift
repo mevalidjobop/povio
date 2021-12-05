@@ -69,26 +69,30 @@ class TextField: UIStackView {
 // MARK: Private Methods
 private extension TextField {
   func setLayout() {
-    textFieldView.auto(.height(48))
-    titleLabel.auto(
-      .heightAnchor(),
-      .fillX(15, 15)
-    )
-    textField.auto(
-      .fillX(15, 15),
-      .bottomAnchor(),
-      .heightAnchor(multiplier: 0.7)
-    )
+    textFieldView.snp.makeConstraints {
+      $0.height.equalTo(48)
+    }
+    titleLabel.snp.makeConstraints {
+      $0.height.equalToSuperview()
+      $0.left.equalToSuperview().offset(15)
+      $0.right.equalToSuperview()
+    }
+    textField.snp.makeConstraints {
+      $0.left.equalToSuperview().offset(15)
+      $0.right.equalToSuperview().offset(-15)
+      $0.bottom.equalToSuperview()
+      $0.height.equalToSuperview().multipliedBy(0.7)
+    }
   }
   
   func setPlaceholderFocus() {
     guard (textField.text ?? "").isEmpty else { return }
     let constraints = titleLabel.findConstraints(.height, .top)
     textFieldView.removeConstraints(constraints)
-    titleLabel.auto(
-      .heightAnchor(multiplier: 0.4),
-      .topAnchor(5)
-    )
+    titleLabel.snp.makeConstraints {
+      $0.height.equalToSuperview().multipliedBy(0.4)
+      $0.top.equalToSuperview().offset(5)
+    }
     let transform = titleLabel.transform.scaledBy(x: 1, y: 0.8)
     animatePlaceholder(with: transform)
   }
@@ -97,10 +101,10 @@ private extension TextField {
     guard (textField.text ?? "").isEmpty else { return }
     let constraints = titleLabel.findConstraints(.height, .top)
     textFieldView.removeConstraints(constraints)
-    titleLabel.auto(
-      .heightAnchor(),
-      .topAnchor()
-    )
+    titleLabel.snp.makeConstraints {
+      $0.height.equalToSuperview()
+      $0.top.equalToSuperview()
+    }
     animatePlaceholder(with: .identity)
   }
   

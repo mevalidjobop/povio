@@ -71,7 +71,6 @@
 		BEE2436E275B5DF700DEFDB8 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE2436D275B5DF700DEFDB8 /* LoginController.swift */; };
 		BEE24371275B5EC600DEFDB8 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24370275B5EC600DEFDB8 /* Label.swift */; };
 		BEE24373275B5F5800DEFDB8 /* UIView+FlowrSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24372275B5F5800DEFDB8 /* UIView+FlowrSpot.swift */; };
-		BEE24375275B5F8700DEFDB8 /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24374275B5F8700DEFDB8 /* Autolayout.swift */; };
 		BEE24377275BB4E200DEFDB8 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24376275BB4E200DEFDB8 /* TextField.swift */; };
 		BEE24379275BB53800DEFDB8 /* UIStackView+FlowrSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24378275BB53800DEFDB8 /* UIStackView+FlowrSpot.swift */; };
 /* End PBXBuildFile section */
@@ -150,7 +149,6 @@
 		BEE2436D275B5DF700DEFDB8 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		BEE24370275B5EC600DEFDB8 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		BEE24372275B5F5800DEFDB8 /* UIView+FlowrSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+FlowrSpot.swift"; sourceTree = "<group>"; };
-		BEE24374275B5F8700DEFDB8 /* Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autolayout.swift; sourceTree = "<group>"; };
 		BEE24376275BB4E200DEFDB8 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		BEE24378275BB53800DEFDB8 /* UIStackView+FlowrSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+FlowrSpot.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -198,7 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				99373B8A25631A19005E0116 /* Aliases.swift */,
-				BEE24374275B5F8700DEFDB8 /* Autolayout.swift */,
 				3787E6402015D1420080A599 /* Constants.swift */,
 			);
 			path = Utils;
@@ -662,7 +659,6 @@
 				99EFB8702567ABFE00842287 /* AlamofireNetworkClient+FlowrSpot.swift in Sources */,
 				99373B8B25631A19005E0116 /* Aliases.swift in Sources */,
 				37B4196C200E06C600173B80 /* AppDelegate.swift in Sources */,
-				BEE24375275B5F8700DEFDB8 /* Autolayout.swift in Sources */,
 				3787E6412015D1420080A599 /* Constants.swift in Sources */,
 				37603CEA2010975700FB9F78 /* DataSource.swift in Sources */,
 				BEE24379275BB53800DEFDB8 /* UIStackView+FlowrSpot.swift in Sources */,

@@ -36,14 +36,14 @@ class LoginController: UIViewController {
 // MARK: - Private Methods
 private extension LoginController {
   func setLayout() {
-    navTitle.auto(
-      .topAnchor(safeArea: true),
-      .fillX(safeArea: true)
-    )
-    
-    usernameField.auto(
-      .fillX(15, 15),
-      .topBottomAnchor(ofView: navTitle, 40)
-    )
+    navTitle.snp.makeConstraints {
+      $0.top.equalTo(view.safeAreaLayoutGuide)
+      $0.width.equalTo(view.safeAreaLayoutGuide)
+    }
+    usernameField.snp.makeConstraints {
+      $0.left.equalToSuperview().offset(15)
+      $0.right.equalToSuperview().offset(15)
+      $0.top.equalTo(navTitle.snp.bottom).offset(40)
+    }
   }
 }

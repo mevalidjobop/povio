@@ -41,11 +41,6 @@ extension UIView {
     subviews.forEach { addSubview($0) }
   }
   
-  func auto(_ layouts: Autolayout...) {
-    self.translatesAutoresizingMaskIntoConstraints = false
-    self.auto(layouts)
-  }
-  
   func findConstraint(_ attr: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
     if let constraints = superview?.constraints {
       for constraint in constraints where itemMatch(constraint: constraint, layoutAttribute: attr) {
@@ -66,14 +61,6 @@ extension UIView {
 
 // MARK: - Private Methods
 private extension UIView {
-  func auto(_ layouts: [Autolayout]) {
-    guard !layouts.isEmpty else { return }
-    var layouts = layouts
-    let layout = layouts.removeFirst()
-    layout.closure(self)
-    self.auto(layouts)
-  }
-  
   func itemMatch(
     constraint: NSLayoutConstraint,
     layoutAttribute: NSLayoutConstraint.Attribute
