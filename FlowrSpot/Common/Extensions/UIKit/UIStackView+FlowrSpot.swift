@@ -1,5 +1,5 @@
 //
-//  UIStack+FlowrSpot.swift
+//  UIStackView+FlowrSpot.swift
 //  FlowrSpot
 //
 //  Created by Mirela V on 04/12/2021.

@@ -37,10 +37,6 @@ extension UIView {
     }
   }
   
-  func addSubviews(_ subviews: UIView...) {
-    subviews.forEach { addSubview($0) }
-  }
-  
   func findConstraint(_ attr: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
     if let constraints = superview?.constraints {
       for constraint in constraints where itemMatch(constraint: constraint, layoutAttribute: attr) {

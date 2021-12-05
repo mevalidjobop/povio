@@ -20,6 +20,6 @@ class FlowController {
 // MARK: - Public Methods
 extension FlowController {
   func startAppFlow() {
-    window.rootViewController = LoginController()
+    window.rootViewController = LoginViewController()
   }
 }

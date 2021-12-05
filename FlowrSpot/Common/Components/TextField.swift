@@ -43,6 +43,7 @@ private extension TextField {
   
   func setupTextFieldView() {
     setupTitleLabel()
+    setupTextField()
     addArrangedSubview(textFieldView)
     textFieldView.backgroundColor = .flowrFieldBackground
     textFieldView.borderColor = .flowrFieldBorder
@@ -86,31 +87,31 @@ private extension TextField {
     errorLabel.text = "Some error"
   }
   
-  func setPlaceholderFocus() {
+  func setupPlaceholderFocus() {
     guard (textField.text ?? "").isEmpty else { return }
     let constraints = titleLabel.findConstraints(.height, .top)
     textFieldView.removeConstraints(constraints)
-    setFocusLayout()
     let transform = titleLabel.transform.scaledBy(x: 1, y: 0.8)
+    setupFocusLayout()
     animatePlaceholder(with: transform)
   }
   
-  func setFocusLayout() {
+  func setupFocusLayout() {
     titleLabel.snp.makeConstraints {
       $0.height.equalToSuperview().multipliedBy(0.4)
       $0.top.equalToSuperview().offset(5)
     }
   }
   
-  func setPlaceholderBlur() {
+  func setupPlaceholderBlur() {
     guard (textField.text ?? "").isEmpty else { return }
     let constraints = titleLabel.findConstraints(.height, .top)
     textFieldView.removeConstraints(constraints)
-    setBlurLayout()
+    setupBlurLayout()
     animatePlaceholder(with: .identity)
   }
   
-  func setBlurLayout() {
+  func setupBlurLayout() {
     titleLabel.snp.makeConstraints {
       $0.height.equalToSuperview()
       $0.top.equalToSuperview()
@@ -128,10 +129,10 @@ private extension TextField {
 // MARK: - UITextField Delegate
 extension TextField: UITextFieldDelegate {
   func textFieldDidBeginEditing(_ textField: UITextField) {
-    setPlaceholderFocus()
+    setupPlaceholderFocus()
   }
   
   func textFieldDidEndEditing(_ textField: UITextField) {
-    setPlaceholderBlur()
+    setupPlaceholderBlur()
   }
 }

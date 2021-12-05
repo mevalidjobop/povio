@@ -26,14 +26,14 @@ class Label: UILabel {
     limitedToNumberOfLines numberOfLines: Int
   ) -> CGRect {
     // Set label padding
-    let rect = setPadding(forBounds: bounds)
+    let rect = setupPadding(forBounds: bounds)
     return rect
   }
 }
 
 // MARK: - Private Methods
 private extension Label {
-  func setPadding(forBounds bounds: CGRect) -> CGRect {
+  func setupPadding(forBounds bounds: CGRect) -> CGRect {
     let edgeInsets = UIEdgeInsets(
       top: padding.top,
       left: padding.left,
