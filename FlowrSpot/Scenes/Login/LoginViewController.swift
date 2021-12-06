@@ -2,7 +2,7 @@
 //  LoginViewController.swift
 //  FlowrSpot
 //
-//  Created by Mirela V on 05/12/2021.
+//  Created by Mirela V on 04/12/2021.
 //  Copyright © 2021 Povio Labs. All rights reserved.
 //
 
@@ -10,8 +10,10 @@ import UIKit
 
 class LoginViewController: UIViewController {
   private let navTitle = Label()
+  private let formView = FormView()
   private let usernameField = TextField()
-
+  private let passwordField = TextField()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .white
@@ -23,7 +25,20 @@ class LoginViewController: UIViewController {
 private extension LoginViewController {
   func setupViews() {
     setupNavTitle()
+    setupFormView()
+  }
+  
+  func setupFormView() {
     setupUsernameField()
+    setupPasswordField()
+    view.addSubview(formView)
+    formView.spacing = 16
+    formView.snp.makeConstraints {
+      $0.top.equalTo(navTitle.snp.bottom)
+      $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+      $0.left.equalToSuperview().offset(15)
+      $0.right.equalToSuperview().offset(-15)
+    }
   }
   
   func setupNavTitle() {
@@ -40,12 +55,18 @@ private extension LoginViewController {
   }
   
   func setupUsernameField() {
-    view.addSubview(usernameField)
+    usernameField.name = "username"
     usernameField.title = "email_address".localized()
-    usernameField.snp.makeConstraints {
-      $0.left.equalToSuperview().offset(15)
-      $0.right.equalToSuperview().offset(-15)
-      $0.top.equalTo(navTitle.snp.bottom).offset(40)
-    }
+    usernameField.rules = [.required, .email]
+    usernameField.delegate = formView
+    formView.addArrangedSubViews(usernameField)
+  }
+  
+  func setupPasswordField() {
+    passwordField.name = "password"
+    passwordField.title = "password".localized()
+    passwordField.rules = [.required, .minSize(8)]
+    passwordField.isSecureTextEntry = true
+    formView.addArrangedSubViews(passwordField)
   }
 }

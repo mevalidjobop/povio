@@ -12,6 +12,13 @@
 
 "placeholder_no_content" = "No content.";
 
+/** Validation */
+"required" = "The %@ field is required.";
+"invalid_format" = "The %@ format is invalid.";
+"min_size_string" = "The %@ must be at least %i characters.";
+"min_size_int" = "The %@ must be at least %i.";
+"min_size_array" = "The %@ must have at least %i values.";
+
 /** Home Scene */
 "home_title" = "Discover flowers\naround you";
 "home_subtitle" = "Explore between more than 8.427 sightings";
@@ -21,3 +28,4 @@
 
 /** Login Scene */
 "email_address" = "Email Address";
+"password" = "Password";

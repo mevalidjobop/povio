@@ -73,6 +73,9 @@
 		BEE24377275BB4E200DEFDB8 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24376275BB4E200DEFDB8 /* TextField.swift */; };
 		BEE24379275BB53800DEFDB8 /* UIStackView+FlowrSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24378275BB53800DEFDB8 /* UIStackView+FlowrSpot.swift */; };
 		BEE2437C275D0E3100DEFDB8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE2437B275D0E3100DEFDB8 /* LoginViewController.swift */; };
+		BEE2437F275E7C6B00DEFDB8 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE2437E275E7C6B00DEFDB8 /* FormView.swift */; };
+		BEE24382275E7C9900DEFDB8 /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24381275E7C9900DEFDB8 /* FormField.swift */; };
+		BEE24385275E7CC000DEFDB8 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24384275E7CC000DEFDB8 /* Validator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +154,9 @@
 		BEE24376275BB4E200DEFDB8 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		BEE24378275BB53800DEFDB8 /* UIStackView+FlowrSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+FlowrSpot.swift"; sourceTree = "<group>"; };
 		BEE2437B275D0E3100DEFDB8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BEE2437E275E7C6B00DEFDB8 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
+		BEE24381275E7C9900DEFDB8 /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
+		BEE24384275E7CC000DEFDB8 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,8 +238,8 @@
 		37603CE4201096C000FB9F78 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				BEE2437A275D0E1B00DEFDB8 /* Login */,
 				37F6090A2012220200087B53 /* Home */,
+				BEE2437A275D0E1B00DEFDB8 /* Login */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -261,8 +267,8 @@
 				37DFD3362011E48D001023ED /* UIColor+FlowrSpot.swift */,
 				37DFD3332011E48D001023ED /* UIFont+FlowrSpot.swift */,
 				99EFB8962567B09C00842287 /* UIImageView+FlowrSpot.swift */,
-				BEE24372275B5F5800DEFDB8 /* UIView+FlowrSpot.swift */,
 				BEE24378275BB53800DEFDB8 /* UIStackView+FlowrSpot.swift */,
+				BEE24372275B5F5800DEFDB8 /* UIView+FlowrSpot.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -465,6 +471,7 @@
 		BEE2436F275B5EB900DEFDB8 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				BEE2437D275E7C4E00DEFDB8 /* Form */,
 				BEE24370275B5EC600DEFDB8 /* Label.swift */,
 				BEE24376275BB4E200DEFDB8 /* TextField.swift */,
 			);
@@ -477,6 +484,32 @@
 				BEE2437B275D0E3100DEFDB8 /* LoginViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		BEE2437D275E7C4E00DEFDB8 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				BEE24380275E7C8900DEFDB8 /* Protocols */,
+				BEE24383275E7CB500DEFDB8 /* Utils */,
+				BEE2437E275E7C6B00DEFDB8 /* FormView.swift */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
+		BEE24380275E7C8900DEFDB8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				BEE24381275E7C9900DEFDB8 /* FormField.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		BEE24383275E7CB500DEFDB8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BEE24384275E7CC000DEFDB8 /* Validator.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -669,7 +702,6 @@
 				37B4196C200E06C600173B80 /* AppDelegate.swift in Sources */,
 				3787E6412015D1420080A599 /* Constants.swift in Sources */,
 				37603CEA2010975700FB9F78 /* DataSource.swift in Sources */,
-				BEE24379275BB53800DEFDB8 /* UIStackView+FlowrSpot.swift in Sources */,
 				373597C8201B2D570000CA57 /* EmptyView.swift in Sources */,
 				99373B632562EF3E005E0116 /* EndpointEncodable.swift in Sources */,
 				99492824271021240060C35F /* FlowController.swift in Sources */,
@@ -684,10 +716,11 @@
 				37F609182012220200087B53 /* FlowersDataSource.swift in Sources */,
 				37F609242012226600087B53 /* FlowersRow.swift in Sources */,
 				37F609232012226600087B53 /* FlowersSection.swift in Sources */,
+				BEE24382275E7C9900DEFDB8 /* FormField.swift in Sources */,
+				BEE2437F275E7C6B00DEFDB8 /* FormView.swift in Sources */,
 				378E922622B0E227008C06F0 /* HomeContentView.swift in Sources */,
 				37DFD3282011E41C001023ED /* HomeHeaderView.swift in Sources */,
 				37F609192012220200087B53 /* HomeInteractor.swift in Sources */,
-				BEE24377275BB4E200DEFDB8 /* TextField.swift in Sources */,
 				37F609202012220200087B53 /* HomePresenter.swift in Sources */,
 				37F6091C2012220200087B53 /* HomeRouter.swift in Sources */,
 				37F6091B2012220200087B53 /* HomeViewController.swift in Sources */,
@@ -703,10 +736,13 @@
 				99EF39B922E7202D001230BD /* SearchView.swift in Sources */,
 				37603CEC2010977100FB9F78 /* SectionType.swift in Sources */,
 				37DFD34E2011E817001023ED /* TabBarController.swift in Sources */,
+				BEE24377275BB4E200DEFDB8 /* TextField.swift in Sources */,
 				37DFD33C2011E48D001023ED /* UIColor+FlowrSpot.swift in Sources */,
 				37DFD3392011E48D001023ED /* UIFont+FlowrSpot.swift in Sources */,
 				99EFB8972567B09C00842287 /* UIImageView+FlowrSpot.swift in Sources */,
+				BEE24379275BB53800DEFDB8 /* UIStackView+FlowrSpot.swift in Sources */,
 				BEE24373275B5F5800DEFDB8 /* UIView+FlowrSpot.swift in Sources */,
+				BEE24385275E7CC000DEFDB8 /* Validator.swift in Sources */,
 				3787E6552015D3E90080A599 /* Version.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

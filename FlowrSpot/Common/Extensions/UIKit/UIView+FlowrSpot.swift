@@ -9,6 +9,22 @@
 import UIKit
 
 extension UIView {
+  var width: CGFloat {
+    get {
+      let width = self.frame.size.width
+      return width
+    }
+    set { self.frame.size.width = newValue }
+  }
+  
+  var height: CGFloat {
+    get {
+      let height = self.frame.size.height
+      return height
+    }
+    set { self.frame.size.height = newValue }
+  }
+  
   var borderWidth: CGFloat {
     get {
       let borderWidth = self.layer.borderWidth

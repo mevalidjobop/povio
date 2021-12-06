@@ -9,10 +9,14 @@
 import UIKit
 
 class TextField: UIStackView {
-  private let textFieldView = UIView()
+  private let textFieldContainer = UIView()
   private let titleLabel = Label()
-  private let textField = UITextField()
   private let errorLabel = Label()
+  
+  weak var delegate: FormViewDelegate?
+  let textField = UITextField()
+  var name: String?
+  var rules: [Rule]?
   
   var title: String? {
     didSet {
@@ -20,11 +24,24 @@ class TextField: UIStackView {
     }
   }
   
+  var error: String? {
+    didSet {
+      let isValid = (error ?? "").isEmpty
+      errorLabel.alpha = isValid ? 0 : 1
+      errorLabel.text = error
+    }
+  }
+  
+  var isSecureTextEntry: Bool = false {
+    didSet {
+      textField.isSecureTextEntry = isSecureTextEntry
+    }
+  }
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     axis = .vertical
     spacing = 2
-    textField.delegate = self
     setupViews()
   }
   
@@ -37,25 +54,26 @@ class TextField: UIStackView {
 // MARK: Private Methods
 private extension TextField {
   func setupViews() {
-    setupTextFieldView()
-    textFieldView.bringSubviewToFront(textField)
+    setupTextFieldContainer()
+    setupErrorLabel()
+    textFieldContainer.bringSubviewToFront(textField)
   }
   
-  func setupTextFieldView() {
+  func setupTextFieldContainer() {
     setupTitleLabel()
     setupTextField()
-    addArrangedSubview(textFieldView)
-    textFieldView.backgroundColor = .flowrFieldBackground
-    textFieldView.borderColor = .flowrFieldBorder
-    textFieldView.borderWidth = 1
-    textFieldView.cornerRadius = 3
-    textFieldView.snp.makeConstraints {
+    addArrangedSubview(textFieldContainer)
+    textFieldContainer.backgroundColor = .flowrFieldBackground
+    textFieldContainer.borderColor = .flowrFieldBorder
+    textFieldContainer.borderWidth = 1
+    textFieldContainer.cornerRadius = 3
+    textFieldContainer.snp.makeConstraints {
       $0.height.equalTo(48)
     }
   }
   
   func setupTitleLabel() {
-    textFieldView.addSubview(titleLabel)
+    textFieldContainer.addSubview(titleLabel)
     titleLabel.font = UIFont.custom(type: .regular, size: 13)
     titleLabel.textColor = .flowrFieldTitle
     titleLabel.snp.makeConstraints {
@@ -66,12 +84,13 @@ private extension TextField {
   }
   
   func setupTextField() {
-    textFieldView.addSubview(textField)
+    textFieldContainer.addSubview(textField)
     textField.autocapitalizationType = .none
     textField.autocorrectionType = .no
     textField.returnKeyType = .done
     textField.font = UIFont.custom(type: .regular, size: 13)
     textField.textColor = .flowrFieldText
+    textField.delegate = self
     textField.snp.makeConstraints {
       $0.left.equalToSuperview().offset(15)
       $0.right.equalToSuperview().offset(15)
@@ -84,13 +103,13 @@ private extension TextField {
     addArrangedSubview(errorLabel)
     errorLabel.font = UIFont.custom(type: .regular, size: 11)
     errorLabel.textColor = .red
-    errorLabel.text = "Some error"
+    errorLabel.alpha = 0
   }
   
   func setupPlaceholderFocus() {
     guard (textField.text ?? "").isEmpty else { return }
     let constraints = titleLabel.findConstraints(.height, .top)
-    textFieldView.removeConstraints(constraints)
+    textFieldContainer.removeConstraints(constraints)
     let transform = titleLabel.transform.scaledBy(x: 1, y: 0.8)
     setupFocusLayout()
     animatePlaceholder(with: transform)
@@ -106,7 +125,7 @@ private extension TextField {
   func setupPlaceholderBlur() {
     guard (textField.text ?? "").isEmpty else { return }
     let constraints = titleLabel.findConstraints(.height, .top)
-    textFieldView.removeConstraints(constraints)
+    textFieldContainer.removeConstraints(constraints)
     setupBlurLayout()
     animatePlaceholder(with: .identity)
   }
@@ -134,5 +153,8 @@ extension TextField: UITextFieldDelegate {
   
   func textFieldDidEndEditing(_ textField: UITextField) {
     setupPlaceholderBlur()
+    guard let name = self.name else { return }
+    delegate?.values[name] = textField.text
+    textField.resignFirstResponder()
   }
 }
