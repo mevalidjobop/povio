@@ -18,4 +18,7 @@ extension UIColor {
   static let flowrFieldBorder = UIColor(red: 223, green: 229, blue: 234)
   static let flowrFieldBackground = UIColor(red: 245, green: 246, blue: 247)
   static let flowrFieldTitle = UIColor(red: 148, green: 158, blue: 160)
+  static let flowrPinkGradient0 = UIColor(red: 236, green: 188, blue: 179)
+  static let flowrPinkGradient1 = UIColor(red: 234, green: 167, blue: 158)
+  static let flowrGrayGradient = UIColor(red: 249, green: 249, blue: 249)
 }

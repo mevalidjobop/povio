@@ -143,6 +143,11 @@ private extension TextField {
       self.layoutIfNeeded()
     }, completion: nil)
   }
+  
+  func getFormTextFields() -> [TextField]? {
+    let formTextFields = delegate?.getFields().filter { $0 is TextField } as? [TextField]
+    return formTextFields
+  }
 }
 
 // MARK: - UITextField Delegate
@@ -155,6 +160,24 @@ extension TextField: UITextFieldDelegate {
     setupPlaceholderBlur()
     guard let name = self.name else { return }
     delegate?.values[name] = textField.text
+    delegate?.fieldValidate(self)
+  }
+  
+  func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    let formTextFields = getFormTextFields()
+    let isLastInForm = formTextFields?.last?.textField == textField
+    textField.returnKeyType = isLastInForm ? .done : .next
+    return true
+  }
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    let formTextFields = getFormTextFields()
     textField.resignFirstResponder()
+    guard textField.returnKeyType == .next else { return true }
+    
+    guard let index = formTextFields?.firstIndex(of: self),
+          let nextTextField = formTextFields?[index + 1] else { return true }
+    nextTextField.textField.becomeFirstResponder()
+    return true
   }
 }

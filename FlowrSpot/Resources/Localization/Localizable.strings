@@ -27,5 +27,7 @@
 "sightings_count" = "%d sightings";
 
 /** Login Scene */
+"welcome_title" = "Welcome Back";
 "email_address" = "Email Address";
 "password" = "Password";
+"submit_title" = "Login to your Account";

@@ -76,6 +76,7 @@
 		BEE2437F275E7C6B00DEFDB8 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE2437E275E7C6B00DEFDB8 /* FormView.swift */; };
 		BEE24382275E7C9900DEFDB8 /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24381275E7C9900DEFDB8 /* FormField.swift */; };
 		BEE24385275E7CC000DEFDB8 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24384275E7CC000DEFDB8 /* Validator.swift */; };
+		BEE24387275FC15100DEFDB8 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24386275FC15100DEFDB8 /* Button.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +158,7 @@
 		BEE2437E275E7C6B00DEFDB8 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		BEE24381275E7C9900DEFDB8 /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
 		BEE24384275E7CC000DEFDB8 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		BEE24386275FC15100DEFDB8 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -472,6 +474,7 @@
 			isa = PBXGroup;
 			children = (
 				BEE2437D275E7C4E00DEFDB8 /* Form */,
+				BEE24386275FC15100DEFDB8 /* Button.swift */,
 				BEE24370275B5EC600DEFDB8 /* Label.swift */,
 				BEE24376275BB4E200DEFDB8 /* TextField.swift */,
 			);
@@ -700,6 +703,7 @@
 				99EFB8702567ABFE00842287 /* AlamofireNetworkClient+FlowrSpot.swift in Sources */,
 				99373B8B25631A19005E0116 /* Aliases.swift in Sources */,
 				37B4196C200E06C600173B80 /* AppDelegate.swift in Sources */,
+				BEE24387275FC15100DEFDB8 /* Button.swift in Sources */,
 				3787E6412015D1420080A599 /* Constants.swift in Sources */,
 				37603CEA2010975700FB9F78 /* DataSource.swift in Sources */,
 				373597C8201B2D570000CA57 /* EmptyView.swift in Sources */,

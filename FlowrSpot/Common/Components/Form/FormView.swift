@@ -10,6 +10,9 @@ import UIKit
 
 protocol FormViewDelegate: AnyObject {
   var values: [String: Any] { get set }
+  
+  func getFields() -> [FormField]
+  func fieldValidate(_ field: FormField?)
 }
 
 class FormView: UIView {
@@ -21,16 +24,20 @@ class FormView: UIView {
   var errors: [String: String] = [:]
   var attrLabels: [String: String] = [:]
   let validator = Validator()
-  
-  var values: [String: Any] = [:] {
-    didSet {
-      validate()
-    }
-  }
+  var values: [String: Any] = [:]
+  var isValid = false
   
   var spacing: CGFloat = 15 {
     didSet {
       contentView.spacing = spacing
+    }
+  }
+  
+  var customSpacing: [UIView: CGFloat] = [:] {
+    didSet {
+      _ = customSpacing.map {
+        contentView.setCustomSpacing($0.value, after: $0.key)
+      }
     }
   }
   
@@ -61,6 +68,12 @@ extension FormView {
     _ = views.map { subview in
       addArrangedSubview(subview)
     }
+  }
+  
+  func formValidate() {
+    getFields().forEach { fieldValidate($0) }
+    let errorMsgs = errors.filter { !$0.value.isEmpty }
+    isValid = errorMsgs.isEmpty
   }
 }
 
@@ -100,25 +113,22 @@ private extension FormView {
     guard let fieldRules = field.rules else { return }
     rules[name] = fieldRules
   }
+}
 
-  func getFields() -> [FormField?] {
-    let formFields = contentView.subviews.map { $0 as? FormField }
+extension FormView: FormViewDelegate {
+  func getFields() -> [FormField] {
+    let formFields = contentView.subviews.reduce(into: [FormField]()) { result, field in
+      guard let `field` = field as? FormField else { return }
+      result.append(field)
+    }
     return formFields
   }
   
-  func validate() {
-    getFields().forEach { validateField($0) }
-  }
-  
-  func validateField(_ field: FormField?) {
+  func fieldValidate(_ field: FormField?) {
     guard let `field` = field,
           let name = field.name else { return }
     let msg = validator.validate(name, rules[name] ?? [], attrLabels, values) ?? ""
     errors[name] = msg
     field.error = msg
   }
-}
-
-extension FormView: FormViewDelegate {
-  // TODO: - Methods
 }
