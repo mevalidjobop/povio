@@ -8,13 +8,37 @@
 
 import UIKit
 
+protocol LoginDisplayLogic: AnyObject {
+  func displayHomeRoot()
+  func displayError(title: String, message: String)
+}
+
 class LoginViewController: UIViewController {
-  private let navTitle = Label()
+  var interactor: LoginBusinessLogic?
+  var router: LoginRoutingLogic?
+  
   private let welcomeTitle = Label()
   private let formView = FormView()
   private let usernameField = TextField()
   private let passwordField = TextField()
   private let submitButton = Button()
+  
+  init() {
+    super.init(nibName: nil, bundle: nil)
+    let interactor = LoginInteractor()
+    let presenter = LoginPresenter()
+    let router = LoginRouter()
+    interactor.presenter = presenter
+    presenter.viewController = self
+    router.viewController = self
+    self.interactor = interactor
+    self.router = router
+  }
+  
+  @available(*, unavailable)
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -26,22 +50,9 @@ class LoginViewController: UIViewController {
 // MARK: - Private Methods
 private extension LoginViewController {
   func setupViews() {
-    setupNavTitle()
     setupFormView()
     setupGradient()
-  }
-  
-  func setupNavTitle() {
-    view.addSubview(navTitle)
-    navTitle.text = "general_app_name".localized()
-    navTitle.padding = (15, 0, 15, 0)
-    navTitle.font = UIFont.custom(type: .bold, size: 20)
-    navTitle.textColor = .flowrPink
-    navTitle.textAlignment = .center
-    navTitle.snp.makeConstraints {
-      $0.top.equalTo(view.safeAreaLayoutGuide)
-      $0.width.equalTo(view.safeAreaLayoutGuide)
-    }
+    navigationItem.title = "general_app_name".localized()
   }
   
   func setupFormView() {
@@ -55,10 +66,10 @@ private extension LoginViewController {
       passwordField: 48
     ]
     formView.snp.makeConstraints {
-      $0.top.equalTo(navTitle.snp.bottom)
+      $0.top.equalTo(view.safeAreaLayoutGuide)
       $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-      $0.left.equalToSuperview().offset(15)
-      $0.right.equalToSuperview().offset(-15)
+      $0.left.equalToSuperview().offset(20)
+      $0.right.equalToSuperview().offset(-20)
     }
   }
   
@@ -71,7 +82,7 @@ private extension LoginViewController {
   }
   
   func setupUsernameField() {
-    usernameField.name = "username"
+    usernameField.name = "email"
     usernameField.title = "email_address".localized()
     usernameField.rules = [.required, .email]
     usernameField.delegate = formView
@@ -106,12 +117,26 @@ private extension LoginViewController {
   }
 }
 
+// MARK: - Display Logic
+extension LoginViewController: LoginDisplayLogic {
+  func displayHomeRoot() {
+    submitButton.loading = false
+    router?.navigateToHomeRoot()
+  }
+  func displayError(title: String, message: String) {
+    submitButton.loading = false
+    router?.navigateToAlert(title: title, message: message, handler: nil)
+  }
+}
+
 // MARK: - Actions
 private extension LoginViewController {
   @objc func submitButtonPressed() {
     view.endEditing(true)
     formView.formValidate()
-    guard formView.isValid else { return }
+    guard formView.isValid,
+          let payload = formView.values.decode(LoginAPI.LoginPayload.self) else { return }
     submitButton.loading = true
+    interactor?.login(payload: payload)
   }
 }

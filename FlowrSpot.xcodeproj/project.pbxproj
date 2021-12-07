@@ -77,6 +77,13 @@
 		BEE24382275E7C9900DEFDB8 /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24381275E7C9900DEFDB8 /* FormField.swift */; };
 		BEE24385275E7CC000DEFDB8 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24384275E7CC000DEFDB8 /* Validator.swift */; };
 		BEE24387275FC15100DEFDB8 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24386275FC15100DEFDB8 /* Button.swift */; };
+		BEE24389275FFB2400DEFDB8 /* Dictionary+FlowrSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24388275FFB2400DEFDB8 /* Dictionary+FlowrSpot.swift */; };
+		BEE2438C275FFB9D00DEFDB8 /* LoginAPI+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE2438B275FFB9D00DEFDB8 /* LoginAPI+Endpoints.swift */; };
+		BEE2438E275FFBC400DEFDB8 /* LoginAPI+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE2438D275FFBC400DEFDB8 /* LoginAPI+Models.swift */; };
+		BEE24390275FFBDB00DEFDB8 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE2438F275FFBDB00DEFDB8 /* LoginAPI.swift */; };
+		BEE24392275FFBFC00DEFDB8 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24391275FFBFC00DEFDB8 /* LoginInteractor.swift */; };
+		BEE24394275FFC1200DEFDB8 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24393275FFC1200DEFDB8 /* LoginPresenter.swift */; };
+		BEE24396275FFC2B00DEFDB8 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE24395275FFC2B00DEFDB8 /* LoginRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +166,13 @@
 		BEE24381275E7C9900DEFDB8 /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
 		BEE24384275E7CC000DEFDB8 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		BEE24386275FC15100DEFDB8 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		BEE24388275FFB2400DEFDB8 /* Dictionary+FlowrSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+FlowrSpot.swift"; sourceTree = "<group>"; };
+		BEE2438B275FFB9D00DEFDB8 /* LoginAPI+Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginAPI+Endpoints.swift"; sourceTree = "<group>"; };
+		BEE2438D275FFBC400DEFDB8 /* LoginAPI+Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginAPI+Models.swift"; sourceTree = "<group>"; };
+		BEE2438F275FFBDB00DEFDB8 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
+		BEE24391275FFBFC00DEFDB8 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		BEE24393275FFC1200DEFDB8 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		BEE24395275FFC2B00DEFDB8 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +272,7 @@
 		37603CE72010970F00FB9F78 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				BEE24388275FFB2400DEFDB8 /* Dictionary+FlowrSpot.swift */,
 				372B952F22B0D36400B304B3 /* JSONDecoder+FlowrSpot.swift */,
 			);
 			path = Foundation;
@@ -412,6 +427,7 @@
 		99373B6D2562EFD9005E0116 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
+				BEE2438A275FFB7500DEFDB8 /* Login */,
 				99373B742562EFF0005E0116 /* FlowersAPI+Endpoints.swift */,
 				99EFB8792567AEF600842287 /* FlowersAPI+Mappers.swift */,
 				99373B782562EFFB005E0116 /* FlowersAPI+Models.swift */,
@@ -484,6 +500,9 @@
 		BEE2437A275D0E1B00DEFDB8 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				BEE24391275FFBFC00DEFDB8 /* LoginInteractor.swift */,
+				BEE24393275FFC1200DEFDB8 /* LoginPresenter.swift */,
+				BEE24395275FFC2B00DEFDB8 /* LoginRouter.swift */,
 				BEE2437B275D0E3100DEFDB8 /* LoginViewController.swift */,
 			);
 			path = Login;
@@ -513,6 +532,16 @@
 				BEE24384275E7CC000DEFDB8 /* Validator.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		BEE2438A275FFB7500DEFDB8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BEE2438B275FFB9D00DEFDB8 /* LoginAPI+Endpoints.swift */,
+				BEE2438D275FFBC400DEFDB8 /* LoginAPI+Models.swift */,
+				BEE2438F275FFBDB00DEFDB8 /* LoginAPI.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -706,6 +735,7 @@
 				BEE24387275FC15100DEFDB8 /* Button.swift in Sources */,
 				3787E6412015D1420080A599 /* Constants.swift in Sources */,
 				37603CEA2010975700FB9F78 /* DataSource.swift in Sources */,
+				BEE24389275FFB2400DEFDB8 /* Dictionary+FlowrSpot.swift in Sources */,
 				373597C8201B2D570000CA57 /* EmptyView.swift in Sources */,
 				99373B632562EF3E005E0116 /* EndpointEncodable.swift in Sources */,
 				99492824271021240060C35F /* FlowController.swift in Sources */,
@@ -733,6 +763,12 @@
 				372B953022B0D36400B304B3 /* JSONDecoder+FlowrSpot.swift in Sources */,
 				BEE24371275B5EC600DEFDB8 /* Label.swift in Sources */,
 				99492826271021A50060C35F /* LoggerStartupProcess.swift in Sources */,
+				BEE2438C275FFB9D00DEFDB8 /* LoginAPI+Endpoints.swift in Sources */,
+				BEE2438E275FFBC400DEFDB8 /* LoginAPI+Models.swift in Sources */,
+				BEE24390275FFBDB00DEFDB8 /* LoginAPI.swift in Sources */,
+				BEE24392275FFBFC00DEFDB8 /* LoginInteractor.swift in Sources */,
+				BEE24394275FFC1200DEFDB8 /* LoginPresenter.swift in Sources */,
+				BEE24396275FFC2B00DEFDB8 /* LoginRouter.swift in Sources */,
 				BEE2437C275D0E3100DEFDB8 /* LoginViewController.swift in Sources */,
 				99373BCB25631E53005E0116 /* ModelMapper.swift in Sources */,
 				37892D80200F38A600BB8259 /* NavigationController.swift in Sources */,
