@@ -47,6 +47,11 @@ class HomeViewController: UIViewController {
     setupViews()
     loadData()
   }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    setupNavigationBar()
+  }
 }
 
 // MARK: - Display Logic
@@ -93,8 +98,6 @@ extension HomeViewController: UIScrollViewDelegate {
 // MARK: - Private methods
 private extension HomeViewController {
   func setupViews() {
-    navigationItem.title = "general_app_name".localized()
-    navigationItem.rightBarButtonItem = UIBarButtonItem(customView: contentView.rightBarButton)
     setupContentView()
   }
   
@@ -103,6 +106,11 @@ private extension HomeViewController {
     contentView.rightBarButton.addTarget(self, action: #selector(barButtonPressed), for: .touchUpInside)
     contentView.collectionView.delegate = self
     contentView.collectionView.dataSource = dataSource.create(with: contentView.collectionView)
+  }
+  
+  func setupNavigationBar() {
+    navigationController?.navigationBar.topItem?.title = "general_app_name".localized()
+    navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: contentView.rightBarButton)
   }
   
   func loadData() {

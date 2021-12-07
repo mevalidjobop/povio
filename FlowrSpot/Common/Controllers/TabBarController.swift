@@ -33,8 +33,7 @@ private extension TabBarController {
     UITabBarItem.appearance().setTitleTextAttributes([:], for: .normal)
     
     let homeViewController = HomeViewController(delegate: nil)
-    let homeNavigationController = NavigationController(rootViewController: homeViewController)
-    let viewControllers = [homeNavigationController, UIViewController(), UIViewController(), UIViewController()]
+    let viewControllers = [homeViewController, UIViewController(), UIViewController(), UIViewController()]
     setViewControllers(viewControllers, animated: true)
     
     if let items = tabBar.items, items.count == viewControllers.count {
