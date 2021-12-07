@@ -38,6 +38,12 @@ class TextField: UIStackView {
     }
   }
   
+  var keyboardType: UIKeyboardType = .default {
+    didSet {
+      textField.keyboardType = keyboardType
+    }
+  }
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     axis = .vertical

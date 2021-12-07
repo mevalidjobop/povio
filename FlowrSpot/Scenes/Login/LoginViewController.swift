@@ -86,6 +86,7 @@ private extension LoginViewController {
     usernameField.title = "email_address".localized()
     usernameField.rules = [.required, .email]
     usernameField.delegate = formView
+    usernameField.keyboardType = .emailAddress
     formView.addArrangedSubViews(usernameField)
   }
   
